@@ -15,9 +15,14 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { useMediaQuery } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
 const navItems = ['Home', 'Add', 'Manage'];
+const routes = [
+  { path: '/', name: 'Home' },
+  { path: '/add', name: 'Add' }
+];
 
 function Navbar(props) {
   const { window } = props;
@@ -36,10 +41,10 @@ function Navbar(props) {
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
+        {routes.map((item) => (
+          <ListItem key={item.path} component={Link} to={item.path} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
+              <ListItemText primary={item.name} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -72,9 +77,9 @@ function Navbar(props) {
           )}
           {isMobile ? null : (
             <Box sx={{ display: 'flex', marginLeft: 'auto' }}>
-              {navItems.map((item) => (
-                <Button key={item} sx={{ color: '#fff' }}>
-                  {item}
+              {routes.map((item) => (
+                <Button key={item.path} component={Link} to={item.path} sx={{ color: '#fff' }}>
+                  {item.name}
                 </Button>
               ))}
             </Box>
@@ -98,21 +103,14 @@ function Navbar(props) {
           {drawer}
         </Drawer>
       </Box>
-      <Box component="main" sx={{ p: 3 }}>
+      <Box component="main">
         <Toolbar />
-        <Typography>
-          {/* ... */}
-        </Typography>
       </Box>
     </Box>
   );
 }
 
 Navbar.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window: PropTypes.func,
 };
 

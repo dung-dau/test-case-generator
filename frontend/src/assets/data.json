@@ -1,0 +1,17 @@
+[
+    {
+      "id": 1,
+      "type": "Integer Array",
+      "value": "[1,2,3,4,5]"
+    },
+    {
+      "id": 2,
+      "type": "String",
+      "value": "Hello world!"
+    },
+    {
+      "id": 3,
+      "type": "Integer",
+      "value": 9
+    }
+]
