@@ -7,6 +7,10 @@
     margin-top: 2rem;
 }
 
+.MuiCardContent-root:last-child {
+    padding-bottom: 16px !important;
+}
+
 @media screen and (min-width: 600px) {
     .homeContainer {
         padding-inline: 3rem;
