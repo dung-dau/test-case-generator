@@ -1,11 +1,12 @@
 import { Card, CardContent, Typography } from "@mui/material";
-import data from '../assets/data.json';
+import data from '../../assets/data.json';
+import './Home.css';
 
 function Home() {
     return (
-        <div>
+        <div className="homeContainer">
           {data.map((item) => (
-            <Card variant="outlined" sx={{mt: 5, ml: 2, mr: 2}}>
+            <Card variant="outlined">
               <CardContent>
                 <Typography variant="h4" component="div">
                   { item.type }  

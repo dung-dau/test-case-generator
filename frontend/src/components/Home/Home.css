@@ -1,0 +1,27 @@
+.homeContainer {
+    padding-inline: 2rem;
+    margin-top: 5rem;
+}
+
+.MuiCard-root {
+    margin-top: 2rem;
+}
+
+@media screen and (min-width: 600px) {
+    .homeContainer {
+        padding-inline: 3rem;
+        margin-top: 6rem;
+    }
+
+    .MuiCardContent-root {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        place-items: center;
+    }   
+}
+
+@media screen and (min-width: 1024px) {
+    .homeContainer {
+        padding-inline: 12rem;
+    }
+}
