@@ -18,13 +18,12 @@ import { useMediaQuery } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
-const navItems = ['Home', 'Add', 'Manage'];
 const routes = [
   { path: '/', name: 'Home' },
   { path: '/add', name: 'Add' }
 ];
 
-function Navbar(props) {
+function Navbar(props: { window: any; }) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
