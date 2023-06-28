@@ -8,13 +8,13 @@ import AddPage from './components/AddPage/AddPage';
 function App() {
   return (
     <div className="App">
-    <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/add" element={<AddPage />} />
-        </Routes>
-    </Router>
+      <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/add" element={<AddPage />} />
+          </Routes>
+      </Router>
     </div>
   );
 }
