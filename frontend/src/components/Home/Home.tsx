@@ -1,11 +1,13 @@
 import { Card, CardContent, Typography } from "@mui/material";
 import data from '../../assets/data.json';
 import './Home.css';
+import React from "react";
+import { TestCase } from "../../types/testCaseTypes";
 
-function Home() {
+const Home: React.FC = () => {
     return (
         <main className="homeContainer">
-          {data.map((item) => (
+          {data.map((item: TestCase) => (
             <Card variant="outlined" key={item.id}>
               <CardContent>
                 <Typography variant="h4" component="h1" aria-label="Type">

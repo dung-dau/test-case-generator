@@ -16,31 +16,34 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { useMediaQuery } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { Route } from '../../types/routeTypes';
 
-const drawerWidth = 240;
-const routes = [
+const drawerWidth: number = 240;
+const routes: Route[] = [
   { path: '/', name: 'Home' },
   { path: '/add', name: 'Add' }
 ];
+interface NavbarProps {
+  window?: () => Window;
+}
 
-function Navbar(props: { window: any; }) {
-  const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+const Navbar: React.FC<NavbarProps> = ({ window }) => {
+  const [mobileOpen, setMobileOpen] = React.useState<boolean>(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
 
-  const isMobile = useMediaQuery('(max-width: 600px)');
+  const isMobile: boolean = useMediaQuery('(max-width: 600px)');
 
-  const drawer = (
+  const drawer: JSX.Element = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2, display: { sm: 'none' } }}>
         Test Case Generator
       </Typography>
       <Divider />
       <List>
-        {routes.map((item) => (
+        {routes.map((item: Route) => (
           <ListItem key={item.path} component={Link} to={item.path} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
               <ListItemText primary={item.name} />
@@ -51,7 +54,7 @@ function Navbar(props: { window: any; }) {
     </Box>
   );
 
-  const container = window !== undefined ? () => window().document.body : undefined;
+  const container: (() => HTMLElement) | undefined = window !== undefined ? () => window().document.body : undefined;
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -76,7 +79,7 @@ function Navbar(props: { window: any; }) {
           )}
           {isMobile ? null : (
             <Box sx={{ display: 'flex', marginLeft: 'auto' }}>
-              {routes.map((item) => (
+              {routes.map((item: Route) => (
                 <Button key={item.path} component={Link} to={item.path} sx={{ color: '#fff' }}>
                   {item.name}
                 </Button>
@@ -108,9 +111,5 @@ function Navbar(props: { window: any; }) {
     </Box>
   );
 }
-
-Navbar.propTypes = {
-  window: PropTypes.func,
-};
 
 export default Navbar;
