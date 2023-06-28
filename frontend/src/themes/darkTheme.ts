@@ -1,6 +1,15 @@
 import { createTheme } from "@mui/material/styles";
 
 const darkTheme = createTheme({
+    // components: {
+    //     MuiInputBase: {
+    //         styleOverrides: {
+    //             formControl: {
+    //                 color: '#fff',
+    //             },
+    //         }
+    //     }
+    // },
     typography: {
         allVariants: {
             color: '#ffffff',
